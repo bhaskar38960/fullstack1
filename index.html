@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio website-V.Bhaskar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="hedder">
+    <div class="contaner">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li ><a href="#hedder">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>STUDENT</p>
+            <h1>Hi,I'm <span>Bhaskar</span> from Kakinada  </h1>
+        </div>
+    </div>
+</div>
+<!--about-->
+<div id="About">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/profile1.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>My self V.Bhaskar,I am an enthusiastic and dedicated professional pursuing a Master's degree in 
+                     Computer Applications while leveraging my skills through various experiences in 
+                     customer service and academic environments. With certifications in Python and 
+                     web development, I excel in technical concepts and enjoy mentoring students in 
+                     complex subjects. I aim to contribute effectively to any organization that values 
+                     knowledge sharing and professional development</p>
+                     
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="Skills">
+                    <ul>
+                        <li><span>Python</span></li>
+                        <li><span>Java</span></li>
+                        <li><span>HTML/CSS</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>6months</span><br>Customer service Associate at COGENT E-SERIVICE PVT,Bengaluru</li>
+                        <li><span>6months</span><br>Junior Lecturer at Pragati vidyalaya junior college,Peddapuram</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Pursuing</span><br>MCA at Adikavi Nannaya University MSN campus, Kakinada</li>
+                        <li><span>2023</span><br>Bsc(MPCS) from SRVBSJB Maharani college ,Peddapuram</li>
+                        <li><span>2020</span><br>Intermediate from Pragati vidyalaya junior college,Peddapuram</li>
+                        <li><span>2018</span><br>SSC from municipal high school,Samalkot</li>
+                    </ul>
+                </div>
+            </div>
+        </div>  
+        
+    </div>
+</div>
+<!--SERVICES-->
+<!--Portfolio-->
+<div id="Projects">
+    <div class="container">
+        <h1 class="sub-title">PROJECTS</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/image.jpg">
+                <div class="layer">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Design and build a portfolio with an "About", "Projects", and "Contact" section, ensuring it’s fully responsive</p>
+                    <a href="http://127.0.0.1:5500/index.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+                <img src="images/future-webdesign.jpg">
+                <div class="layer">
+                    <h3>Fetch Data from an API Using JavaScript </h3>
+                    <p> Fetch data from a public API (e.g., weather or joke API) and display the data dynamically on the webpage.</p>                                                        
+                    <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!----contact---->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">contact me</h1><br>
+                <p>suryakumar38960@gmail.com</p><br>
+                
+                <p>7032674535</p>
+                <br>
+                <a href="https://www.linkedin.com/in/velagaleti-bhaskar-3228b829b">linkedin</a>
+                <div><a href="images/VelagaletiBhaskarResume (2).pdf" download class="btn btn2">Downlode CV</a></div>
+            </div>
+            
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="NAME" placeholder="enter your name" required>
+                    <input type="text" name="email" placeholder="enter your email" required>
+                    <textarea name="massege" rows="6" placeholder="enter your msg"></textarea>
+                    <button type="submit" class="btn btn2">submit</button>
+                </form>
+            </div>
+        </div> 
+    </div>
+    <div class="copyright"><p>Copyright @Bhaskar</p></div>
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw712C3DHKSw59Gs0-IrYkOIm4MzTnLP3Vrcg2jfSuHlnPqFaOZoWFF6rBF_iMVgO3Y/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
+<!--creating my own portfolio by using css and htm and js -->
